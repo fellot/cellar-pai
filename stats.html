@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estatísticas da Adega</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <!-- Hero Section -->
+  <header class="hero" style="background-image: url('images/hero.png');">
+    <div class="overlay">
+      <h1>Estatísticas da Adega</h1>
+      <p>Visualize sua coleção por país, safra e estilo.</p>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="index.html">Inventário</a></li>
+      <li><a href="stats.html" class="active">Estatísticas</a></li>
+      <li><a href="sustainability.html">Sustentabilidade</a></li>
+    </ul>
+    <button id="darkModeToggle" aria-label="Alternar tema">
+      <span class="icon"></span>
+    </button>
+  </nav>
+
+  <main class="content">
+    <section class="stats">
+      <h2>Visualizações da Coleção</h2>
+      <div class="chart-container">
+        <h3>Vinhos por País</h3>
+        <canvas id="countryChart" width="400" height="300"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3>Vinhos por Safra</h3>
+        <canvas id="vintageChart" width="400" height="300"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3>Vinhos por Estilo</h3>
+        <canvas id="styleChart" width="400" height="300"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <!-- Custom Script -->
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      initializeStatsPage();
+    });
+  </script>
+</body>
+</html>

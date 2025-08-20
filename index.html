@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minha Adega</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <!-- DataTables CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Hero Section -->
+  <header class="hero" style="background-image: url('images/hero.png');">
+    <div class="overlay">
+      <h1>Minha Adega de Vinhos</h1>
+      <p>Explore minha coleção de vinhos do mundo todo, pesquise por país, safra ou uva e descubra harmonizações e sugestões de pratos.</p>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Inventário</a></li>
+      <li><a href="stats.html">Estatísticas</a></li>
+      <li><a href="sustainability.html">Sustentabilidade</a></li>
+    </ul>
+    <button id="darkModeToggle" aria-label="Alternar tema">
+      <!-- Icon changes via CSS based on theme -->
+      <span class="icon"></span>
+    </button>
+  </nav>
+
+  <main class="content">
+    <section class="inventory">
+      <h2>Inventário da Adega</h2>
+      <!-- Summary Cards -->
+      <div class="summary">
+        <div class="card">
+          <span class="label">Total de garrafas</span>
+          <span class="value" id="totalCount">–</span>
+        </div>
+        <div class="card">
+          <span class="label">Países</span>
+          <span class="value" id="countryCount">–</span>
+        </div>
+        <div class="card">
+          <span class="label">Estilos</span>
+          <span class="value" id="styleCount">–</span>
+        </div>
+        <div class="card">
+          <span class="label">Próximo pico</span>
+          <span class="value" id="peakYear">–</span>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters">
+        <label>
+          País:
+          <select id="countryFilter">
+            <option value="">Todos</option>
+          </select>
+        </label>
+        <label>
+          Estilo:
+          <select id="styleFilter">
+            <option value="">Todos</option>
+          </select>
+        </label>
+        <label>
+          Safra:
+          <select id="vintageFilter">
+            <option value="">Todas</option>
+          </select>
+        </label>
+        <label>
+          Uva:
+          <select id="grapeFilter">
+            <option value="">Todas</option>
+          </select>
+        </label>
+        <label class="search-wrapper">
+          <input type="search" id="searchBox" placeholder="Buscar vinhos, uvas ou regiões..." />
+        </label>
+      </div>
+
+      <!-- Data Table -->
+      <table id="wineTable" class="display" style="width:100%">
+        <thead>
+          <tr>
+            <th>Rótulo</th>
+            <th>Vinho</th>
+            <th>País</th>
+            <th>Região</th>
+            <th>Safra</th>
+            <th>Estilo</th>
+            <th>Uvas</th>
+            <th>Janela</th>
+            <th>Pico</th>
+            <th>Harmonização</th>
+            <th>Prato</th>
+            <th>Consumido</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- jQuery and DataTables JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <!-- Chart.js is not needed on this page -->
+  <!-- Custom Script -->
+  <script src="script.js"></script>
+  <script>
+    // Initialize the inventory page on load
+    document.addEventListener('DOMContentLoaded', function () {
+      initializeInventoryPage();
+    });
+  </script>
+</body>
+</html>
