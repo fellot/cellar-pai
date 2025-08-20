@@ -137,7 +137,6 @@ function updateSummary(data) {
 function initDataTable(data) {
   // Convert data to array of arrays for DataTables
   const rows = data.map(item => [
-    item.rotulo,
     item.vinho,
     item.pais,
     item.regiao,
@@ -154,7 +153,6 @@ function initDataTable(data) {
   const table = $('#wineTable').DataTable({
     data: rows,
     columns: [
-      { title: 'Rótulo' },
       { title: 'Vinho' },
       { title: 'País' },
       { title: 'Região' },
@@ -190,14 +188,14 @@ function initDataTable(data) {
     const vintageVal = $('#vintageFilter').val();
     const grapeVal = $('#grapeFilter').val();
     // Reset filters
-    table.column(2).search(countryVal, false, false);
-    table.column(5).search(styleVal, false, false);
-    table.column(4).search(vintageVal, false, false);
+    table.column(1).search(countryVal, false, false);
+    table.column(4).search(styleVal, false, false);
+    table.column(3).search(vintageVal, false, false);
     // For grapes, search inside cell with regex if value present
     if (grapeVal) {
-      table.column(6).search(grapeVal, true, false);
+      table.column(5).search(grapeVal, true, false);
     } else {
-      table.column(6).search('');
+      table.column(5).search('');
     }
     table.draw();
   };
